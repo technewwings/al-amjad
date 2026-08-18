@@ -1,0 +1,50 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+---
+
+<Layout title="Privacy Policy - Al Amjad Tours & Travels">
+	<Header />
+	<main class="flex-grow">
+		<section class="page-section page-container py-12 md:py-20 max-w-3xl">
+			<h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-on-surface mb-6" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+				Privacy Policy
+			</h1>
+			<div class="flex flex-col gap-5 text-base text-on-surface-variant leading-relaxed">
+				<p>
+					Al Amjad Tours &amp; Travels (“we”, “us”) respects your privacy. This policy explains how we handle personal
+					information you share when you enquire about our travel services.
+				</p>
+				<h2 class="text-xl font-bold text-on-surface mt-2" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+					Information We Collect
+				</h2>
+				<p>
+					We may collect your name, phone number, travel preferences, and message details when you contact us through our
+					website forms, WhatsApp, or phone.
+				</p>
+				<h2 class="text-xl font-bold text-on-surface mt-2" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+					How We Use Information
+				</h2>
+				<p>
+					Your details are used only to respond to enquiries, prepare quotations, arrange bookings, and provide customer
+					support. We do not sell your personal information to third parties.
+				</p>
+				<h2 class="text-xl font-bold text-on-surface mt-2" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+					Contact
+				</h2>
+				<p>
+					For privacy-related questions, contact us at M.A Bazar, Kasaragod, or call / WhatsApp
+					<a class="text-primary font-semibold hover:underline" href="tel:9995794058">9995 794 058</a>.
+				</p>
+			</div>
+			<a href="/contact" class="inline-flex items-center gap-2 mt-10 text-primary font-semibold hover:underline">
+				<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+				Back to Contact
+			</a>
+		</section>
+	</main>
+	<Footer />
+	<WhatsAppFloat />
+</Layout>

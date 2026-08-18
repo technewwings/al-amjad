@@ -1,0 +1,165 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+import DestinationCard from '../components/DestinationCard.astro';
+import { getDomesticDestinations, getInternationalDestinations } from '../data/destinations';
+
+const whatsappBase = 'https://wa.me/919995794058';
+const domestic = getDomesticDestinations();
+const international = getInternationalDestinations();
+
+const heroImage =
+	'https://lh3.googleusercontent.com/aida-public/AB6AXuDe2Pg4aB_9g7tqixd7D5_d6RUUKry7HEBMt-Ys5n5qZq5ypXQ9fL3SUK3E7_XMZgQ61cqz3MaWISJFjsKUpd8KRM5SldWnruaQ0XaHSapydubVUxgvyE2KGO0dwR9K6T0ww16SJHn_o9dM9GHJ8b79K1TLRzyijZWPjrdLg8xTRDtgH94IYot-04rzv7ey6wo2OEcfm7NVrKItRAnk_9gkTeeSbOk85Iw5ZNHTxUfveTTmUkAf';
+---
+
+<Layout title="Destinations - Al Amjad Tours & Travels">
+	<Header />
+	<main class="flex-grow">
+		<section class="relative h-[42vh] min-h-[280px] sm:h-[50vh] sm:min-h-[360px] md:h-[60vh] md:min-h-[400px] flex items-center justify-center overflow-hidden">
+			<img
+				src={heroImage}
+				alt="Scenic travel destination at sunrise with valleys and mountains"
+				class="absolute inset-0 z-0 w-full h-full object-cover"
+			/>
+			<div class="absolute inset-0 z-10 bg-gradient-to-b from-inverse-surface/40 to-inverse-surface/80"></div>
+			<div class="relative z-20 text-center page-section w-full page-container">
+				<h1 class="text-2xl sm:text-3xl md:text-5xl font-extrabold text-on-primary mb-3 px-2 break-words" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+					Explore Our Top Destinations
+				</h1>
+				<p class="text-sm sm:text-base md:text-lg text-surface-container mx-auto max-w-2xl px-2">
+					Discover breathtaking locations and curated travel experiences designed for the modern explorer.
+				</p>
+			</div>
+		</section>
+
+		<div class="page-section page-container py-10 md:py-16 w-full">
+			<div class="flex flex-col items-center mb-8 md:mb-12 w-full overflow-x-auto" data-destination-tabs>
+				<div class="inline-flex bg-surface-container-high rounded-full p-1 shadow-sm max-w-full" role="tablist" aria-label="Destination type">
+					<button
+						type="button"
+						role="tab"
+						aria-selected="true"
+						data-tab="domestic"
+						class="tab-btn px-4 sm:px-6 py-2 rounded-full text-sm font-semibold bg-primary text-on-primary transition-all shadow-md"
+					>
+						Domestic
+					</button>
+					<button
+						type="button"
+						role="tab"
+						aria-selected="false"
+						data-tab="international"
+						class="tab-btn px-4 sm:px-6 py-2 rounded-full text-sm font-semibold text-on-surface-variant hover:text-primary transition-all"
+					>
+						International
+					</button>
+				</div>
+			</div>
+
+			<div
+				id="domestic-grid"
+				role="tabpanel"
+				class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 transition-opacity duration-300"
+			>
+				{
+					domestic.map((destination) => (
+						<DestinationCard
+							name={destination.name}
+							slug={destination.slug}
+							description={destination.tagline}
+							duration={destination.duration}
+							src={destination.hero.src}
+							alt={destination.hero.alt}
+							badge={destination.badge}
+							whatsappMessage={destination.whatsappMessage}
+						/>
+					))
+				}
+			</div>
+
+			<div
+				id="international-grid"
+				role="tabpanel"
+				hidden
+				class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 transition-opacity duration-300"
+			>
+				{
+					international.map((destination) => (
+						<DestinationCard
+							name={destination.name}
+							slug={destination.slug}
+							description={destination.tagline}
+							duration={destination.duration}
+							src={destination.hero.src}
+							alt={destination.hero.alt}
+							badge={destination.badge}
+							whatsappMessage={destination.whatsappMessage}
+						/>
+					))
+				}
+			</div>
+
+			<div
+				class="mt-12 md:mt-16 bg-surface-container-low rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 border border-surface-variant shadow-sm"
+			>
+				<div class="flex-1 text-center md:text-left">
+					<h2 class="text-xl md:text-2xl font-bold text-on-surface mb-1" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+						Cannot find your destination?
+					</h2>
+					<p class="text-sm md:text-base text-on-surface-variant">
+						Contact our travel experts to create a custom package tailored just for you.
+					</p>
+				</div>
+				<a
+					href={`${whatsappBase}?text=${encodeURIComponent('Hi, I need a custom travel package. Please help me plan my trip.')}`}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="bg-secondary text-on-secondary px-8 py-3 rounded-full hover:bg-on-secondary-container transition-colors shadow-md flex items-center justify-center gap-2 font-bold whitespace-nowrap w-full md:w-auto shrink-0"
+				>
+					<span class="material-symbols-outlined">support_agent</span>
+					Contact Us
+				</a>
+			</div>
+		</div>
+	</main>
+	<Footer />
+	<WhatsAppFloat />
+</Layout>
+
+<script>
+	const tabs = document.querySelectorAll<HTMLButtonElement>('[data-destination-tabs] [data-tab]');
+	const domesticGrid = document.getElementById('domestic-grid');
+	const internationalGrid = document.getElementById('international-grid');
+
+	const activeClasses = ['bg-primary', 'text-on-primary', 'shadow-md'];
+	const inactiveClasses = ['text-on-surface-variant', 'hover:text-primary'];
+
+	function switchTab(tab: string) {
+		const showDomestic = tab === 'domestic';
+
+		domesticGrid?.toggleAttribute('hidden', !showDomestic);
+		internationalGrid?.toggleAttribute('hidden', showDomestic);
+
+		tabs.forEach((button) => {
+			const isActive = button.dataset.tab === tab;
+			button.setAttribute('aria-selected', String(isActive));
+			button.classList.remove(...activeClasses, ...inactiveClasses);
+			button.classList.add(...(isActive ? activeClasses : inactiveClasses));
+		});
+	}
+
+	tabs.forEach((button) => {
+		button.addEventListener('click', () => {
+			const tab = button.dataset.tab;
+			if (tab) switchTab(tab);
+		});
+	});
+
+	const params = new URLSearchParams(window.location.search);
+	const initialTab = params.get('tab');
+	if (initialTab === 'international' || initialTab === 'domestic') {
+		switchTab(initialTab);
+	}
+</script>

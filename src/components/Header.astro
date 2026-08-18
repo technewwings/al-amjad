@@ -1,0 +1,61 @@
+---
+const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
+
+const navLinks = [
+	{ href: '/', label: 'Home' },
+	{ href: '/destinations', label: 'Destinations' },
+	{ href: '/about', label: 'About' },
+	{ href: '/contact', label: 'Contact' },
+].map((link) => ({
+	...link,
+	active: link.href === '/' ? pathname === '/' : pathname.startsWith(link.href),
+}));
+---
+
+<header class="bg-surface sticky top-0 w-full z-50 shadow-md">
+	<div class="page-section page-container flex justify-between items-center gap-2 sm:gap-4 py-2 lg:py-3 min-w-0">
+		<a
+			href="/"
+			class="flex items-center min-w-0 w-40 max-w-full"
+			aria-label="Al Amjad Tours & Travels home"
+		>
+			<img
+				src="/logo.png"
+				alt="Al Amjad Tours & Travels"
+				width="702"
+				height="136"
+				class="w-full h-auto object-contain object-left select-none"
+			/>
+		</a>
+		<nav class="hidden lg:flex flex-1 justify-center gap-5 xl:gap-8 items-center">
+			{
+				navLinks.map((link) =>
+					link.active ? (
+						<a class="text-primary font-bold border-b-2 border-primary pb-1 text-sm tracking-wide" href={link.href}>
+							{link.label}
+						</a>
+					) : (
+						<a
+							class="text-on-surface-variant hover:text-primary transition-colors px-1 py-1 text-sm font-semibold tracking-wide"
+							href={link.href}
+						>
+							{link.label}
+						</a>
+					)
+				)
+			}
+		</nav>
+		<a
+			href="https://wa.me/919995794058"
+			target="_blank"
+			rel="noopener noreferrer"
+			class="bg-[#25D366] hover:bg-[#20b858] text-white px-2 sm:px-2.5 py-1 rounded-md transition-colors font-bold shadow-md flex items-center gap-1 sm:gap-1.5 shrink-0"
+		>
+			<span class="material-symbols-outlined text-[16px] sm:text-[18px]">chat</span>
+			<div class="flex flex-col text-left leading-tight">
+				<span class="text-[10px] min-[360px]:text-[11px] sm:text-xs">9995 794 058</span>
+				<span class="hidden sm:block text-[9px] font-normal">Chat with us on WhatsApp</span>
+			</div>
+		</a>
+	</div>
+</header>

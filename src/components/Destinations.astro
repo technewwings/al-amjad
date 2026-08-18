@@ -1,0 +1,59 @@
+---
+import { getFeaturedDestinations } from '../data/destinations';
+
+const destinations = getFeaturedDestinations();
+---
+
+<section class="page-section py-12 md:py-20 bg-surface-container-lowest">
+	<div class="page-container flex flex-col gap-8 md:gap-12">
+		<div class="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-4 min-w-0">
+			<div class="min-w-0">
+				<h2 class="text-2xl md:text-3xl font-bold text-secondary" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+					Featured Destinations
+				</h2>
+				<p class="text-base md:text-lg text-on-surface-variant mt-2">
+					Curated packages to India's most breathtaking locations.
+				</p>
+			</div>
+			<a href="/destinations" class="text-primary text-sm font-semibold hover:underline inline-flex items-center gap-1 shrink-0">
+				View All <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+			</a>
+		</div>
+		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+			{
+				destinations.map((destination) => (
+					<article class="group bg-surface rounded-xl overflow-hidden shadow-[0px_4px_20px_rgba(27,20,100,0.08)] hover:-translate-y-1 hover:shadow-[0px_12px_30px_rgba(27,20,100,0.12)] transition-all flex flex-col h-full min-w-0">
+						<div class="relative h-48 overflow-hidden bg-surface-container-high">
+							<img
+								class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+								alt={destination.hero.alt}
+								src={destination.hero.src}
+								loading="lazy"
+							/>
+							{destination.badge && (
+								<div class="absolute top-3 right-3 bg-tertiary-fixed text-on-tertiary-fixed text-xs px-2 py-1 rounded-full uppercase tracking-widest font-bold">
+									{destination.badge}
+								</div>
+							)}
+						</div>
+						<div class="p-4 md:p-6 flex flex-col flex-grow gap-3">
+							<h3 class="text-xl font-semibold text-secondary leading-tight" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+								{destination.name}
+							</h3>
+							<div class="flex items-center gap-1 text-on-surface-variant mt-auto">
+								<span class="material-symbols-outlined text-[16px]">schedule</span>
+								<span class="text-sm">{destination.duration}</span>
+							</div>
+							<a
+								href={`/destinations/${destination.slug}`}
+								class="w-full mt-2 border-2 border-secondary text-secondary hover:bg-secondary hover:text-on-secondary text-sm font-semibold py-2.5 rounded-lg transition-colors text-center"
+							>
+								View Details
+							</a>
+						</div>
+					</article>
+				))
+			}
+		</div>
+	</div>
+</section>

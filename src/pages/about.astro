@@ -1,0 +1,331 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+
+const whatsappBase = 'https://wa.me/919995794058';
+
+const founderImage =
+	'https://lh3.googleusercontent.com/aida-public/AB6AXuA76wAjf9yp_L_ek1IvU7hSivdhnmJf1yPics-R8z8Qhcog5pYx8soY9hLKg-bKrVbjf7HdI0nMCLvEjBTft26-_rNQp-4Io_U2ywofjk0PsBZZT7UJeVTG8QNWHumyRKuwzwulu8AP2B82RX68gLfcKyFY7ywoiUgUFtyWB3dlESx_vX7XSRNWYB9bzVElvlF9LENG7gstRo3_OERr0XCeP0hsOxbIyNRfJooHdNjQ8qOnttdwlThjgiR-mqeTCw';
+
+const trainImage =
+	'https://lh3.googleusercontent.com/aida-public/AB6AXuAeuTy91zBzk7UWWbcjAyvXeP4rfQaJKGFMIUk7E_XOck_g-wTw_Y6f9XCXfZ5nhwMD-6XQNM8fVGNqsglmXSuqwB41sSd_5gRFhbt2oCWnbWXwNEiKW8AGt4GtVkkCIeCr7mzEjSAaRDxQYymlpvrBGIgWYcEjHdfCURqx4LVyzVqoCZ6QO-CA2CzRPt0TFKi9oO15p0PMDwZP7vdXHS6BikdVf1_gaIhHKsLLYTa96FuKH2-U';
+
+const tourImage =
+	'https://lh3.googleusercontent.com/aida-public/AB6AXuDQpz3DBWWUdubuoD-KK0jvBwKapHDSF5__GTq3Io5Ujmx47ntnYckqX6XcfgDhXZWQjnbSPer05kNnulxRXjL9ieScQx69QSOXsSBrluxgIljbKEfxd2zJFwHuJLD68mWn4nIHH0p-AFpe3_PyHDdTdyl1E8cwKyTiU1NRXp14F_9zqYxHgzzux48UTkOcxX9BHNlupWduWnyTXq8VRNhPljKHmL7qMUJ66QMCDuOxtBKcDpdn';
+
+const tourTags = ['Iraq', 'Palestine', 'Jordan', 'Malaysia', 'Thailand', 'Singapore'];
+
+const stats = [
+	{ value: '10+', label: 'Years Experience', color: 'text-primary' },
+	{ value: '50k+', label: 'Happy Travelers', color: 'text-secondary' },
+	{ value: '100%', label: 'Trust & Safety', color: 'text-primary' },
+];
+---
+
+<Layout title="About - Al Amjad Tours & Travels">
+	<Header />
+	<main class="flex-grow">
+		<!-- Hero -->
+		<section class="relative page-section py-10 sm:py-16 md:py-20 bg-surface-container-low overflow-hidden">
+			<div
+				class="absolute inset-0 opacity-10 pointer-events-none"
+				style="background-image: radial-gradient(circle at 100% 100%, #5855a3 0, transparent 50%), radial-gradient(circle at 0 0, #ba0013 0, transparent 50%);"
+			>
+			</div>
+			<div class="page-container relative z-10 text-center">
+				<h1
+					class="text-2xl sm:text-4xl md:text-5xl font-extrabold text-on-surface mb-4 md:mb-6 tracking-tight px-1"
+					style="font-family: 'Plus Jakarta Sans', sans-serif;"
+				>
+					About <span class="text-gradient">Al Amjad Tours &amp; Travels</span>
+				</h1>
+				<p class="text-base md:text-lg text-on-surface-variant max-w-2xl mx-auto">
+					With over a decade of experience, we are dedicated to providing seamless travel solutions that bridge
+					cultures and create lifelong memories. Your trust is our greatest asset.
+				</p>
+			</div>
+		</section>
+
+		<section class="page-section page-container py-12 md:py-20 w-full">
+			<div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 items-center">
+				<div class="md:col-span-7 flex flex-col justify-center order-2 md:order-1 min-w-0">
+					<h2
+						class="text-2xl sm:text-3xl md:text-5xl font-extrabold text-on-surface mb-4 md:mb-6 tracking-tighter"
+						style="font-family: 'Plus Jakarta Sans', sans-serif;"
+					>
+						Meet Our Founder
+					</h2>
+					<h3 class="text-xl md:text-2xl font-bold text-primary mb-2" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+						Haris Amjadi
+					</h3>
+					<p class="text-xs md:text-sm font-bold text-primary/70 uppercase tracking-widest mb-4 md:mb-6">
+						Founder &amp; Managing Director
+					</p>
+					<p class="text-base md:text-lg text-on-surface-variant leading-relaxed">
+						With over 15+ years of experience in the travel industry, Haris Amjadi founded Al Amjad Tours &amp; Travels
+						in 2010. His vision was to create an agency that prioritizes customer trust and delivers unparalleled travel
+						experiences. Today, his leadership continues to guide our mission of bridging cultures through seamless travel.
+					</p>
+				</div>
+				<div class="md:col-span-5 relative h-64 sm:h-80 md:h-[500px] rounded-2xl overflow-hidden shadow-xl order-1 md:order-2">
+					<img alt="Haris Amjadi - Founder" class="w-full h-full object-cover" src={founderImage} loading="lazy" />
+					<div class="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
+				</div>
+			</div>
+
+			<!-- Services Bento -->
+			<div class="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-auto md:auto-rows-[minmax(280px,auto)] mt-12 md:mt-16">
+				<!-- Train Reservations -->
+				<div class="md:col-span-8 glass-card rounded-xl overflow-hidden flex flex-col md:flex-row relative group">
+					<div class="md:w-1/2 p-6 md:p-8 flex flex-col justify-center z-10">
+						<div class="bg-surface w-12 h-12 rounded-full flex items-center justify-center mb-4 shadow-sm">
+							<span class="material-symbols-outlined text-primary text-2xl">train</span>
+						</div>
+						<h2 class="text-2xl md:text-3xl font-bold text-on-surface mb-2" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+							Train Reservations
+						</h2>
+						<h3 class="text-lg md:text-xl font-semibold text-primary mb-4">ANY TIME ANY TRAIN</h3>
+						<p class="text-sm md:text-base text-on-surface-variant mb-6">
+							Comprehensive IRCTC booking services ensuring you get the confirmed berths you need, when you need them.
+						</p>
+						<a
+							href={`${whatsappBase}?text=${encodeURIComponent('Hi, I would like to book a train ticket.')}`}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="self-start px-6 py-2 border-2 border-secondary text-secondary font-semibold text-sm rounded-full hover:bg-secondary hover:text-white transition-colors"
+						>
+							Book Train
+						</a>
+					</div>
+					<div class="md:w-1/2 relative h-48 sm:h-56 md:h-auto md:min-h-[220px] overflow-hidden">
+						<div
+							class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-700"
+							style={`background-image: url('${trainImage}')`}
+						>
+						</div>
+						<div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-l from-transparent to-white/90"></div>
+					</div>
+				</div>
+
+				<!-- Flight Booking -->
+				<div class="md:col-span-4 glass-card rounded-xl p-6 md:p-8 flex flex-col relative overflow-hidden group">
+					<div
+						class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full -z-10 group-hover:scale-110 transition-transform"
+					>
+					</div>
+					<div class="bg-surface w-12 h-12 rounded-full flex items-center justify-center mb-4 shadow-sm">
+						<span class="material-symbols-outlined text-secondary text-2xl">flight_takeoff</span>
+					</div>
+					<h2 class="text-xl md:text-2xl font-semibold text-on-surface mb-3" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+						Flight Booking
+					</h2>
+					<p class="text-sm md:text-base text-on-surface-variant mb-auto">
+						Domestic and international ticketing with competitive fares and instant confirmation.
+					</p>
+					<div class="mt-6 pt-4 border-t border-outline-variant">
+						<a
+							href={`${whatsappBase}?text=${encodeURIComponent('Hi, I would like to enquire about flight booking.')}`}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="w-full flex items-center justify-between text-secondary font-semibold text-sm hover:text-primary transition-colors"
+						>
+							Search Flights <span class="material-symbols-outlined">arrow_forward</span>
+						</a>
+					</div>
+				</div>
+
+				<!-- Bus Tickets -->
+				<div class="md:col-span-4 glass-card rounded-xl p-6 md:p-8 flex flex-col relative overflow-hidden group">
+					<div
+						class="absolute top-0 left-0 w-32 h-32 bg-secondary/5 rounded-br-full -z-10 group-hover:scale-110 transition-transform"
+					>
+					</div>
+					<div class="bg-surface w-12 h-12 rounded-full flex items-center justify-center mb-4 shadow-sm">
+						<span class="material-symbols-outlined text-tertiary-container text-2xl">directions_bus</span>
+					</div>
+					<h2 class="text-xl md:text-2xl font-semibold text-on-surface mb-3" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+						Bus Tickets
+					</h2>
+					<p class="text-sm md:text-base text-on-surface-variant mb-auto">
+						Luxury AC sleeper and seater buses connecting all major cities across India.
+					</p>
+					<div class="mt-6 pt-4 border-t border-outline-variant">
+						<a
+							href={`${whatsappBase}?text=${encodeURIComponent('Hi, I need bus tickets.')}`}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="w-full flex items-center justify-between text-secondary font-semibold text-sm hover:text-primary transition-colors"
+						>
+							View Routes <span class="material-symbols-outlined">arrow_forward</span>
+						</a>
+					</div>
+				</div>
+
+				<!-- Custom Tour Packages -->
+				<div
+					class="md:col-span-8 glass-card rounded-xl overflow-hidden flex flex-col md:flex-row-reverse relative group bg-secondary text-white"
+				>
+					<div class="md:w-1/2 p-6 md:p-8 flex flex-col justify-center z-10 bg-secondary/90 backdrop-blur-sm">
+						<div class="bg-white/10 w-12 h-12 rounded-full flex items-center justify-center mb-4 shadow-sm">
+							<span class="material-symbols-outlined text-white text-2xl">explore</span>
+						</div>
+						<h2 class="text-2xl md:text-3xl font-bold text-white mb-3" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+							Custom Tour Packages
+						</h2>
+						<div class="flex flex-wrap gap-2 mb-4">
+							{
+								tourTags.map((tag) => (
+									<span class="px-3 py-1 bg-white/20 rounded-full text-xs font-medium text-white">{tag}</span>
+								))
+							}
+						</div>
+						<p class="text-sm md:text-base text-white/80 mb-6">
+							Tailor-made itineraries to domestic and international destinations. We curate experiences, not just trips.
+						</p>
+						<div class="flex flex-col sm:flex-row flex-wrap gap-3">
+							<a
+								href={`${whatsappBase}?text=${encodeURIComponent('Hi, I need a custom travel package. Please help me plan my trip.')}`}
+								target="_blank"
+								rel="noopener noreferrer"
+								class="w-full sm:w-auto px-6 py-2.5 bg-primary text-white font-semibold text-sm rounded-full hover:bg-white hover:text-primary transition-colors shadow-md text-center"
+							>
+								Plan My Trip
+							</a>
+							<a
+								href="/destinations"
+								class="w-full sm:w-auto px-6 py-2.5 border-2 border-white text-white font-semibold text-sm rounded-full hover:bg-white hover:text-secondary transition-colors text-center"
+							>
+								View Destinations
+							</a>
+						</div>
+					</div>
+					<div class="md:w-1/2 relative h-48 sm:h-56 md:h-auto md:min-h-[220px] overflow-hidden">
+						<div
+							class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-700"
+							style={`background-image: url('${tourImage}')`}
+						>
+						</div>
+						<div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-secondary/50 to-secondary/90"></div>
+					</div>
+				</div>
+
+				<!-- Family Travel Packages -->
+				<div class="md:col-span-6 glass-card rounded-xl p-6 md:p-8 flex flex-col relative overflow-hidden group">
+					<div
+						class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full -z-10 group-hover:scale-110 transition-transform"
+					>
+					</div>
+					<div class="bg-surface w-12 h-12 rounded-full flex items-center justify-center mb-4 shadow-sm">
+						<span class="material-symbols-outlined text-primary text-2xl">family_restroom</span>
+					</div>
+					<h2 class="text-xl md:text-2xl font-semibold text-on-surface mb-3" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+						Family Travel Packages
+					</h2>
+					<p class="text-sm md:text-base text-on-surface-variant mb-auto">
+						Curated vacations designed for all ages, ensuring memorable and stress-free trips for the whole family.
+					</p>
+					<div class="mt-6 pt-4 border-t border-outline-variant">
+						<a
+							href={`${whatsappBase}?text=${encodeURIComponent('Hi, I am interested in family travel packages.')}`}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="w-full flex items-center justify-between text-secondary font-semibold text-sm hover:text-primary transition-colors"
+						>
+							Explore Packages <span class="material-symbols-outlined">arrow_forward</span>
+						</a>
+					</div>
+				</div>
+
+				<!-- International Group Tours -->
+				<div class="md:col-span-6 glass-card rounded-xl p-6 md:p-8 flex flex-col relative overflow-hidden group">
+					<div
+						class="absolute top-0 left-0 w-32 h-32 bg-secondary/5 rounded-br-full -z-10 group-hover:scale-110 transition-transform"
+					>
+					</div>
+					<div class="bg-surface w-12 h-12 rounded-full flex items-center justify-center mb-4 shadow-sm">
+						<span class="material-symbols-outlined text-secondary text-2xl">groups</span>
+					</div>
+					<h2 class="text-xl md:text-2xl font-semibold text-on-surface mb-3" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+						International Group Tours
+					</h2>
+					<p class="text-sm md:text-base text-on-surface-variant mb-auto">
+						Join our expertly guided group tours to global destinations. Travel together, save more, and create new
+						friendships.
+					</p>
+					<div class="mt-6 pt-4 border-t border-outline-variant">
+						<a
+							href={`${whatsappBase}?text=${encodeURIComponent('Hi, I am interested in international group tours.')}`}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="w-full flex items-center justify-between text-secondary font-semibold text-sm hover:text-primary transition-colors"
+						>
+							View Itineraries <span class="material-symbols-outlined">arrow_forward</span>
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- Stats -->
+			<div class="mt-12 md:mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6">
+				{
+					stats.map((stat) => (
+						<div class="text-center p-6 md:p-8">
+							<div
+								class:list={['text-4xl md:text-5xl font-black mb-2', stat.color]}
+								style="font-family: 'Plus Jakarta Sans', sans-serif;"
+							>
+								{stat.value}
+							</div>
+							<div class="text-xs md:text-sm font-semibold text-on-surface-variant uppercase tracking-widest">
+								{stat.label}
+							</div>
+						</div>
+					))
+				}
+			</div>
+		</section>
+
+		<!-- CTA -->
+		<section class="page-section page-container max-w-5xl w-full mb-12 md:mb-16">
+			<div
+				class="bg-primary-container rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 text-on-primary-container shadow-[0_8px_32px_0_rgba(186,0,19,0.2)]"
+			>
+				<div class="text-center md:text-left min-w-0">
+					<h3 class="text-xl md:text-2xl font-bold text-white mb-1" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+						Ready to travel?
+					</h3>
+					<p class="text-sm md:text-base text-white/90">
+						Contact our experts at M.A Bazar, Kasaragod for immediate assistance.
+					</p>
+				</div>
+				<a
+					href="tel:9995794058"
+					class="bg-white text-primary px-8 py-3 rounded-full hover:bg-surface-container-low transition-colors shadow-md flex items-center justify-center gap-2 font-bold whitespace-nowrap w-full sm:w-auto shrink-0"
+				>
+					<span class="material-symbols-outlined">call</span>
+					9995 794 058
+				</a>
+			</div>
+		</section>
+	</main>
+	<Footer />
+	<WhatsAppFloat />
+</Layout>
+
+<style>
+	.glass-card {
+		background: rgba(255, 255, 255, 0.9);
+		backdrop-filter: blur(10px);
+		border: 1px solid rgba(255, 255, 255, 0.2);
+		box-shadow: 0 8px 32px 0 rgba(27, 20, 100, 0.1);
+	}
+
+	.text-gradient {
+		background: linear-gradient(to right, #ba0013, #5855a3);
+		-webkit-background-clip: text;
+		background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+</style>

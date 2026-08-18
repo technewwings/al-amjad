@@ -1,0 +1,56 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+---
+
+<Layout title="Terms of Service - Al Amjad Tours & Travels">
+	<Header />
+	<main class="flex-grow">
+		<section class="page-section page-container py-12 md:py-20 max-w-3xl">
+			<h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-on-surface mb-6" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+				Terms of Service
+			</h1>
+			<div class="flex flex-col gap-5 text-base text-on-surface-variant leading-relaxed">
+				<p>
+					By using the Al Amjad Tours &amp; Travels website and services, you agree to these terms. Please read them
+					carefully before making an enquiry or booking.
+				</p>
+				<h2 class="text-xl font-bold text-on-surface mt-2" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+					Services
+				</h2>
+				<p>
+					We provide travel-related services including tour packages, flight booking assistance, train reservations, and
+					bus tickets. Final pricing, availability, and itinerary details are confirmed directly with our team.
+				</p>
+				<h2 class="text-xl font-bold text-on-surface mt-2" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+					Bookings &amp; Payments
+				</h2>
+				<p>
+					Bookings are subject to supplier availability and applicable rules. Cancellation, refund, and reschedule
+					policies depend on the specific ticket or package booked and will be shared at the time of confirmation.
+				</p>
+				<h2 class="text-xl font-bold text-on-surface mt-2" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+					Contact
+				</h2>
+				<p>
+					For questions about these terms, visit us at M.A Bazar, Kasaragod, or reach us on
+					<a class="text-primary font-semibold hover:underline" href="tel:9995794058">9995 794 058</a> /
+					<a
+						class="text-primary font-semibold hover:underline"
+						href="https://wa.me/919995794058"
+						target="_blank"
+						rel="noopener noreferrer">WhatsApp</a
+					>.
+				</p>
+			</div>
+			<a href="/contact" class="inline-flex items-center gap-2 mt-10 text-primary font-semibold hover:underline">
+				<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+				Back to Contact
+			</a>
+		</section>
+	</main>
+	<Footer />
+	<WhatsAppFloat />
+</Layout>

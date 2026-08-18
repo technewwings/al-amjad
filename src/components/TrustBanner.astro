@@ -1,0 +1,40 @@
+---
+const features = [
+	{
+		icon: 'verified',
+		title: 'Best Travel Deals',
+		description: 'Get the best deals on all packages',
+	},
+	{
+		icon: 'event_available',
+		title: 'Easy Booking',
+		description: 'Simple & secure booking',
+	},
+	{
+		icon: 'support_agent',
+		title: '24/7 Support',
+		description: 'We are here to help you anytime',
+	},
+	{
+		icon: 'shield',
+		title: 'Safe & Trusted',
+		description: 'Your safety is our priority',
+	},
+];
+---
+
+<section class="page-section py-8 md:py-10 bg-surface border-y border-surface-variant relative z-20">
+	<div class="page-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+		{
+			features.map((feature) => (
+				<div class="flex items-start gap-3">
+					<span class="material-symbols-outlined text-secondary text-[32px] md:text-[40px] shrink-0">{feature.icon}</span>
+					<div class="min-w-0">
+						<h4 class="text-sm font-bold text-on-surface tracking-wide">{feature.title}</h4>
+						<p class="text-xs text-on-surface-variant mt-1">{feature.description}</p>
+					</div>
+				</div>
+			))
+		}
+	</div>
+</section>

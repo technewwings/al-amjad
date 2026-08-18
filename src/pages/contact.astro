@@ -1,0 +1,266 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+
+const whatsappBase = 'https://wa.me/919995794058';
+const phoneDisplay = '9995 794 058';
+const phoneTel = '9995794058';
+const address = 'M.A Bazar, Kasaragod, Kerala';
+const mapsUrl = 'https://www.google.com/maps/search/?api=1&query=M.A+Bazar+Kasaragod+Kerala';
+
+const contactCards = [
+	{
+		icon: 'call',
+		title: 'Call Us',
+		detail: phoneDisplay,
+		href: `tel:${phoneTel}`,
+		cta: 'Call Now',
+		external: false,
+	},
+	{
+		icon: 'chat',
+		title: 'WhatsApp',
+		detail: 'Instant replies on chat',
+		href: whatsappBase,
+		cta: 'Chat Now',
+		external: true,
+	},
+	{
+		icon: 'location_on',
+		title: 'Visit Us',
+		detail: address,
+		href: mapsUrl,
+		cta: 'Open Maps',
+		external: true,
+	},
+];
+---
+
+<Layout title="Contact - Al Amjad Tours & Travels">
+	<Header />
+	<main class="flex-grow">
+		<section class="relative page-section py-10 sm:py-16 md:py-20 bg-surface-container-low overflow-hidden">
+			<div
+				class="absolute inset-0 opacity-10 pointer-events-none"
+				style="background-image: radial-gradient(circle at 100% 100%, #5855a3 0, transparent 50%), radial-gradient(circle at 0 0, #ba0013 0, transparent 50%);"
+			>
+			</div>
+			<div class="page-container relative z-10 text-center">
+				<h1
+					class="text-2xl sm:text-4xl md:text-5xl font-extrabold text-on-surface mb-4 md:mb-6 tracking-tight px-1"
+					style="font-family: 'Plus Jakarta Sans', sans-serif;"
+				>
+					Contact Us
+				</h1>
+				<p class="text-base md:text-lg text-on-surface-variant max-w-2xl mx-auto">
+					Reach Al Amjad Tours &amp; Travels for bookings, custom packages, and travel support. We are here to help you
+					plan your next journey.
+				</p>
+			</div>
+		</section>
+
+		<section class="page-section page-container py-12 md:py-16 w-full">
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 md:mb-16">
+				{
+					contactCards.map((card) => (
+						<a
+							href={card.href}
+							target={card.external ? '_blank' : undefined}
+							rel={card.external ? 'noopener noreferrer' : undefined}
+							class="bg-surface-container-lowest rounded-2xl p-6 border border-surface-variant shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all flex flex-col gap-3 group"
+						>
+							<div class="bg-primary-fixed text-on-primary-fixed-variant w-12 h-12 rounded-xl flex items-center justify-center">
+								<span class="material-symbols-outlined text-2xl">{card.icon}</span>
+							</div>
+							<h2 class="text-lg md:text-xl font-semibold text-on-surface" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+								{card.title}
+							</h2>
+							<p class="text-sm md:text-base text-on-surface-variant flex-grow">{card.detail}</p>
+							<span class="text-sm font-semibold text-secondary group-hover:text-primary inline-flex items-center gap-1 transition-colors">
+								{card.cta}
+								<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+							</span>
+						</a>
+					))
+				}
+			</div>
+
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-start min-w-0">
+				<div class="min-w-0">
+					<h2
+						class="text-2xl md:text-3xl font-bold text-on-surface mb-3"
+						style="font-family: 'Plus Jakarta Sans', sans-serif;"
+					>
+						Send an Enquiry
+					</h2>
+					<p class="text-sm md:text-base text-on-surface-variant mb-6">
+						Fill in your details and we will open WhatsApp with your message ready to send.
+					</p>
+
+					<form id="contact-enquiry" class="flex flex-col gap-4 bg-surface-container-lowest rounded-2xl p-4 sm:p-6 md:p-8 border border-surface-variant shadow-sm min-w-0">
+						<label class="flex flex-col gap-1.5">
+							<span class="text-xs font-semibold text-on-surface uppercase tracking-wide">Full Name</span>
+							<input
+								name="name"
+								type="text"
+								required
+								placeholder="Your name"
+								class="trip-input"
+							/>
+						</label>
+						<label class="flex flex-col gap-1.5">
+							<span class="text-xs font-semibold text-on-surface uppercase tracking-wide">Phone Number</span>
+							<input
+								name="phone"
+								type="tel"
+								required
+								placeholder="Your phone number"
+								class="trip-input"
+							/>
+						</label>
+						<label class="flex flex-col gap-1.5">
+							<span class="text-xs font-semibold text-on-surface uppercase tracking-wide">Service</span>
+							<select name="service" class="trip-input" required>
+								<option value="">Select a service</option>
+								<option value="Tour Package">Tour Package</option>
+								<option value="Flight Booking">Flight Booking</option>
+								<option value="Train Reservation">Train Reservation</option>
+								<option value="Bus Tickets">Bus Tickets</option>
+								<option value="Family Package">Family Package</option>
+								<option value="Group Tour">Group Tour</option>
+								<option value="General Enquiry">General Enquiry</option>
+							</select>
+						</label>
+						<label class="flex flex-col gap-1.5">
+							<span class="text-xs font-semibold text-on-surface uppercase tracking-wide">Message</span>
+							<textarea
+								name="message"
+								rows="4"
+								required
+								placeholder="Tell us about your travel plans"
+								class="trip-input !h-auto min-h-[120px] py-3 resize-y"
+							></textarea>
+						</label>
+						<button
+							type="submit"
+							class="mt-2 w-full bg-primary hover:bg-primary-container text-on-primary font-bold py-3 px-6 rounded-full shadow-md transition-colors flex items-center justify-center gap-2"
+						>
+							<svg class="w-5 h-5 shrink-0" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" aria-hidden="true">
+								<path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+							</svg>
+							Send via WhatsApp
+						</button>
+					</form>
+				</div>
+
+				<div class="flex flex-col gap-6 min-w-0">
+					<div class="bg-surface-container-low rounded-2xl p-6 md:p-8">
+						<h3 class="text-xl font-bold text-on-surface mb-4" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+							Office Details
+						</h3>
+						<ul class="flex flex-col gap-4 text-sm md:text-base text-on-surface-variant">
+							<li class="flex items-start gap-3">
+								<span class="material-symbols-outlined text-primary shrink-0">storefront</span>
+								<span>
+									<strong class="text-on-surface block">Al Amjad Tours &amp; Travels</strong>
+									{address}
+								</span>
+							</li>
+							<li class="flex items-start gap-3">
+								<span class="material-symbols-outlined text-primary shrink-0">schedule</span>
+								<span>
+									<strong class="text-on-surface block">Working Hours</strong>
+									Monday – Sunday, 9:00 AM – 8:00 PM
+								</span>
+							</li>
+							<li class="flex items-start gap-3">
+								<span class="material-symbols-outlined text-primary shrink-0">support_agent</span>
+								<span>
+									<strong class="text-on-surface block">Support</strong>
+									Call or WhatsApp for instant booking assistance
+								</span>
+							</li>
+						</ul>
+					</div>
+
+					<a
+						href={mapsUrl}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="relative block rounded-2xl overflow-hidden h-56 sm:h-72 bg-surface-container-high group"
+						aria-label="Open location in Google Maps"
+					>
+						<iframe
+							title="Kasaragod map"
+							class="absolute inset-0 w-full h-full border-0 pointer-events-none"
+							loading="lazy"
+							referrerpolicy="no-referrer-when-downgrade"
+							src="https://maps.google.com/maps?q=Kasaragod%2C%20Kerala&t=&z=13&ie=UTF8&iwloc=&output=embed"
+						></iframe>
+						<div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-inverse-surface/80 to-transparent">
+							<span class="text-white text-sm font-semibold inline-flex items-center gap-1">
+								Open in Google Maps
+								<span class="material-symbols-outlined text-[18px]">open_in_new</span>
+							</span>
+						</div>
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<section class="page-section page-container max-w-5xl w-full mb-12 md:mb-16">
+			<div
+				class="bg-primary-container rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 text-on-primary-container shadow-[0_8px_32px_0_rgba(186,0,19,0.2)]"
+			>
+				<div class="text-center md:text-left min-w-0">
+					<h3 class="text-xl md:text-2xl font-bold text-white mb-1" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+						Need help right away?
+					</h3>
+					<p class="text-sm md:text-base text-white/90">Talk to our travel experts on WhatsApp or call us now.</p>
+				</div>
+				<div class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto shrink-0">
+					<a
+						href={`tel:${phoneTel}`}
+						class="bg-white text-primary px-6 py-3 rounded-full hover:bg-surface-container-low transition-colors shadow-md flex items-center justify-center gap-2 font-bold"
+					>
+						<span class="material-symbols-outlined">call</span>
+						{phoneDisplay}
+					</a>
+					<a
+						href={whatsappBase}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="bg-[#25D366] hover:bg-[#20b858] text-white px-6 py-3 rounded-full transition-colors shadow-md flex items-center justify-center gap-2 font-bold"
+					>
+						<span class="material-symbols-outlined">chat</span>
+						WhatsApp
+					</a>
+				</div>
+			</div>
+		</section>
+	</main>
+	<Footer />
+	<WhatsAppFloat />
+</Layout>
+
+<script>
+	const form = document.getElementById('contact-enquiry');
+	form?.addEventListener('submit', (event) => {
+		event.preventDefault();
+		const data = new FormData(form as HTMLFormElement);
+		const name = String(data.get('name') || '').trim();
+		const phone = String(data.get('phone') || '').trim();
+		const service = String(data.get('service') || '').trim();
+		const message = String(data.get('message') || '').trim();
+		const text = [
+			'Hello Al Amjad Tours & Travels!',
+			`Name: ${name || 'N/A'}`,
+			`Phone: ${phone || 'N/A'}`,
+			`Service: ${service || 'General Enquiry'}`,
+			`Message: ${message || 'N/A'}`,
+		].join('\n');
+		window.open(`https://wa.me/919995794058?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
+	});
+</script>

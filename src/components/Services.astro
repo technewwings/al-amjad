@@ -1,0 +1,55 @@
+---
+const services = [
+	{
+		icon: 'train',
+		title: 'Train Reservations',
+		subtitle: 'Any Time Any Train',
+		description:
+			'Hassle-free IRCTC train ticket bookings for all routes across India. We ensure a smooth reservation process even for peak season travel.',
+		cta: 'Book Train',
+		href: 'https://wa.me/919995794058?text=Hi%2C%20I%20would%20like%20to%20book%20a%20train%20ticket.',
+	},
+	{
+		icon: 'flight_takeoff',
+		title: 'Flight Booking',
+		subtitle: 'Domestic & International',
+		description:
+			'Get the most competitive fares for domestic and international flights. From budget airlines to premium carriers, we find the best deals for you.',
+		cta: 'Explore Flights',
+		href: 'https://wa.me/919995794058?text=Hi%2C%20I%20would%20like%20to%20enquire%20about%20flight%20booking.',
+	},
+];
+---
+
+<section class="page-section py-12 md:py-20 bg-surface-container-lowest">
+	<div class="page-container grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+		{
+			services.map((service) => (
+				<div class="bg-surface p-5 sm:p-6 md:p-8 rounded-2xl border border-surface-variant shadow-sm hover:shadow-md transition-all flex flex-col gap-4 md:gap-6">
+					<div class="flex items-start sm:items-center gap-4">
+						<div class="bg-primary-fixed text-on-primary-fixed-variant p-3 rounded-xl shrink-0">
+							<span class="material-symbols-outlined text-3xl md:text-4xl">{service.icon}</span>
+						</div>
+						<div class="min-w-0">
+							<h3 class="text-lg md:text-xl font-bold text-secondary" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+								{service.title}
+							</h3>
+							<p class="text-xs md:text-sm font-semibold text-primary uppercase tracking-widest mt-1">{service.subtitle}</p>
+						</div>
+					</div>
+					<p class="text-base md:text-lg text-on-surface-variant">{service.description}</p>
+					<div class="mt-auto">
+						<a
+							href={service.href}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="bg-secondary hover:bg-primary text-on-secondary px-6 py-2.5 rounded-lg font-bold transition-colors inline-flex items-center gap-2"
+						>
+							{service.cta} <span class="material-symbols-outlined">arrow_forward</span>
+						</a>
+					</div>
+				</div>
+			))
+		}
+	</div>
+</section>

@@ -1,0 +1,64 @@
+---
+const reviews = [
+	{
+		name: 'Sarah & David M.',
+		quote:
+			'An absolutely incredible experience. The attention to detail and seamless planning made our European tour unforgettable!',
+		rating: 5,
+		image:
+			'https://lh3.googleusercontent.com/aida-public/AB6AXuBdZms-zoch8rHPzLK5tXNZ6_Iki2bM3M_Z1bjit7fyG4JurKya8pg4bMffijwI-P81y-32YjZT9c2rPHUhJ2F_zhfQONqzHyvRliJSTjcd3Wl0UFAEK8DvaJisbXQeOVnuz3RzpYAoKsRlBkCPWxUolFViUW4ECJMDytgxIKJsFf7ohXlr7IsZdrQKfevQnnbgd48YgkMYpIkMXBokw8bjMLjcTy6t7ALyY6uVZb7kwNRXMg2V',
+	},
+	{
+		name: 'The Patel Family',
+		quote: "The best travel agency we've ever used. Highly recommend their group packages for family reunions.",
+		rating: 5,
+	},
+	{
+		name: 'James L.',
+		quote: 'Very well organized and great value for money. The guide in Kulu Manali was fantastic.',
+		rating: 4,
+	},
+];
+---
+
+<section class="page-section py-12 md:py-20 bg-surface-container-lowest">
+	<div class="page-container flex flex-col gap-8 md:gap-12 items-center text-center">
+		<div class="px-2">
+			<h2 class="text-2xl md:text-3xl font-bold text-secondary" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+				What Our Travelers Say
+			</h2>
+			<p class="text-base md:text-lg text-on-surface-variant mt-2">Real stories from our happy customers.</p>
+		</div>
+		<div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+			{
+				reviews.map((review) => (
+					<div class="bg-surface p-5 md:p-6 rounded-xl shadow-md border border-surface-variant flex flex-col items-center text-center gap-3">
+						{review.image ? (
+							<div class="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden ring-4 ring-primary-fixed-dim">
+								<img alt="Customer Review" class="w-full h-full object-cover" src={review.image} loading="lazy" />
+							</div>
+						) : (
+							<div class="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden ring-4 ring-primary-fixed-dim bg-surface-variant flex items-center justify-center">
+								<span class="material-symbols-outlined text-4xl text-on-surface-variant">person</span>
+							</div>
+						)}
+						<div class="flex text-tertiary-fixed gap-1">
+							{Array.from({ length: 5 }).map((_, index) => (
+								<span
+									class:list={[
+										'material-symbols-outlined text-[20px] md:text-[24px]',
+										index < review.rating ? 'fill-current' : 'text-outline-variant',
+									]}
+								>
+									star
+								</span>
+							))}
+						</div>
+						<p class="text-sm md:text-base text-on-surface-variant italic">"{review.quote}"</p>
+						<h4 class="text-sm font-bold text-on-surface mt-auto pt-2">- {review.name}</h4>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</section>
