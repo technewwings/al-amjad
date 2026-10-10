@@ -4,6 +4,7 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import WhatsAppFloat from '../../components/WhatsAppFloat.astro';
 import { destinationDetails, getDestinationBySlug } from '../../data/destinations';
+import { clip, touristTripJsonLd } from '../../data/site';
 
 export function getStaticPaths() {
 	return destinationDetails.map((destination) => ({
@@ -18,12 +19,21 @@ if (!destination) {
 	throw new Error(`Unknown destination: ${slug}`);
 }
 
+const description = clip(
+	`${destination.tagline} Book a ${destination.name} tour from Kasaragod with Al Amjad Tours & Travels.`,
+);
 const whatsappHref = `https://wa.me/919995794058?text=${encodeURIComponent(destination.whatsappMessage)}`;
 const featuredImage = destination.gallery.find((image) => image.featured) ?? destination.gallery[0];
 const sideImages = destination.gallery.filter((image) => image !== featuredImage);
 ---
 
-<Layout title={`${destination.name} - Al Amjad Tours & Travels`}>
+<Layout
+	title={`${destination.name} Tour Package from Kasaragod | Al Amjad Tours`}
+	description={description}
+	image={destination.hero.src}
+	imageAlt={destination.hero.alt}
+	jsonLd={touristTripJsonLd(destination)}
+>
 	<Header />
 	<main class="flex-grow w-full min-w-0">
 		<section class="relative h-[380px] sm:h-[460px] md:h-[560px] lg:h-[640px] w-full overflow-hidden">
@@ -69,7 +79,7 @@ const sideImages = destination.gallery.filter((image) => image !== featuredImage
 		</section>
 
 		<div class="page-section page-container py-8 md:py-12 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 min-w-0">
-			<div class="lg:col-span-8 flex flex-col gap-10 md:gap-14 min-w-0">
+			<div class="lg:col-span-8 lg:order-1 flex flex-col gap-10 md:gap-14 min-w-0">
 				<section>
 					<h2 class="text-2xl md:text-3xl font-bold text-on-surface mb-4" style="font-family: 'Plus Jakarta Sans', sans-serif;">
 						Overview
@@ -82,37 +92,40 @@ const sideImages = destination.gallery.filter((image) => image !== featuredImage
 						}
 					</div>
 				</section>
+			</div>
 
-				{
-					destination.experiences.length > 0 && (
-						<section>
-							<h2 class="text-2xl md:text-3xl font-bold text-on-surface mb-2" style="font-family: 'Plus Jakarta Sans', sans-serif;">
-								Places & visual experience
-							</h2>
-							<p class="text-base text-on-surface-variant mb-6">
-								What you will see, feel, and taste in {destination.name}.
-							</p>
-							<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-								{destination.experiences.map((place) => (
-									<article class="bg-surface-container-lowest rounded-xl overflow-hidden border border-surface-variant/50 shadow-[0px_4px_20px_rgba(27,20,100,0.08)]">
-										<div class="aspect-[16/10] overflow-hidden bg-surface-container-high">
-											<img class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src={place.src} alt={place.alt} loading="lazy" />
-										</div>
-										<div class="p-4 md:p-5">
-											{place.mood && (
-												<span class="text-xs font-semibold uppercase tracking-wider text-secondary">{place.mood}</span>
-											)}
-											<h3 class="text-lg font-semibold text-on-surface mt-1" style="font-family: 'Plus Jakarta Sans', sans-serif;">
-												{place.title}
-											</h3>
-											<p class="text-sm md:text-base text-on-surface-variant mt-2 leading-relaxed">{place.description}</p>
-										</div>
-									</article>
-								))}
-							</div>
-						</section>
-					)
-				}
+			{
+				destination.experiences.length > 0 && (
+					<section class="lg:col-span-12 lg:order-3 min-w-0">
+						<h2 class="text-2xl md:text-3xl font-bold text-on-surface mb-2" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+							Places & visual experience
+						</h2>
+						<p class="text-base text-on-surface-variant mb-6">
+							What you will see, feel, and taste in {destination.name}.
+						</p>
+						<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+							{destination.experiences.map((place) => (
+								<article class="bg-surface-container-lowest rounded-xl overflow-hidden border border-surface-variant/50 shadow-[0px_4px_20px_rgba(27,20,100,0.08)]">
+									<div class="aspect-[16/10] overflow-hidden bg-surface-container-high">
+										<img class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src={place.src} alt={place.alt} loading="lazy" />
+									</div>
+									<div class="p-4 md:p-5">
+										{place.mood && (
+											<span class="text-xs font-semibold uppercase tracking-wider text-secondary">{place.mood}</span>
+										)}
+										<h3 class="text-lg font-semibold text-on-surface mt-1" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+											{place.title}
+										</h3>
+										<p class="text-sm md:text-base text-on-surface-variant mt-2 leading-relaxed">{place.description}</p>
+									</div>
+								</article>
+							))}
+						</div>
+					</section>
+				)
+			}
+
+			<div class="lg:col-span-8 lg:order-4 flex flex-col gap-10 md:gap-14 min-w-0">
 
 				{
 					destination.itinerary.length > 0 && (
@@ -226,7 +239,7 @@ const sideImages = destination.gallery.filter((image) => image !== featuredImage
 				}
 			</div>
 
-			<div class="lg:col-span-4 min-w-0">
+			<div class="lg:col-span-4 lg:order-2 lg:row-start-1 min-w-0">
 				<div class="lg:sticky lg:top-28 bg-surface-container-lowest rounded-xl p-5 md:p-6 shadow-[0px_8px_30px_rgba(27,20,100,0.12)] border border-surface-variant/50">
 					<div class="flex justify-between items-start gap-3 mb-3">
 						<div class="min-w-0">

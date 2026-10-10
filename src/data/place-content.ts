@@ -25,10 +25,10 @@ const unsplash = (id: string) =>
 const placeContentBySlug: Record<string, PlaceContent> = {
 	agra: {
 		overview:
-			'Step back in time to the era of emperors and architectural marvels. This carefully curated Agra journey is designed for travelers who want the iconic sights without missing the city’s quieter corners.\n\nFrom sunrise at the Taj Mahal and the red-sandstone courtyards of Agra Fort to Fatehpur Sikri and the lanes of Sadar Bazaar, each stop is paced so you can look closely — at marble inlay, river light, and the taste of petha with masala chai.',
+			'Step back in time to the era of emperors and architectural marvels. This carefully curated Agra journey is designed for travelers who want the iconic sights without rushing the day.\n\nYou move from the Taj Mahal to the red-sandstone courtyards of Agra Fort, then on to Fatehpur Sikri. Guides keep timings realistic so marble, river light, and the abandoned city all fit the same itinerary.',
 		experiences: [
 			{
-				title: 'Sunrise at the Taj Mahal',
+				title: 'Taj Mahal',
 				mood: 'Sunrise',
 				description:
 					'Watch the marble shift from cool grey to rose gold as first light hits the dome. The gardens are quiet, and the reflection pool is almost empty.',
@@ -36,28 +36,20 @@ const placeContentBySlug: Record<string, PlaceContent> = {
 				alt: 'The Taj Mahal at sunrise, reflected in the central pool',
 			},
 			{
-				title: 'Marble inlay and Mughal detail',
+				title: 'Agra Fort',
 				mood: 'Heritage',
 				description:
-					'Stand close to the pietra dura floral work — jade, jasper, and lapis set into white marble. The craft is as memorable as the monument itself.',
-				src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuANIuWp16RRJC27LXWnmKsSxcgXg8q2DxX1Km1DMELOXlLuzhebWxeKMCMcqpZDLyUkA_mIh7c7eNbG3GG4JgEnkQGfQ1WgEze1eS40WhMNCd5Xfnb95MERaLxvcIwCe6e95PswTzwf62Rff8uJEZ8RtUTFny3P1RQp2Qeh-iVQtt6HBbMUKLulIsrLNB6DcQ2sBY6fXXn2EnX8uHNQPNeOb7b6l6qDVr-hPBmiZ5-8118NEr-N',
-				alt: 'Intricate marble inlay floral patterns on the walls of the Taj Mahal',
+					'Red sandstone walls, marble palaces, and views toward the Taj from the river bastions. Best visited after sunrise, before the heat.',
+				src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/The_Agra_fort_%28The_Red_Fort_of_Agra%29.jpg/1280px-The_Agra_fort_%28The_Red_Fort_of_Agra%29.jpg',
+				alt: 'Red sandstone walls of Agra Fort',
 			},
 			{
-				title: 'Sadar Bazaar lanes',
-				mood: 'Markets',
+				title: 'Fatehpur Sikri',
+				mood: 'Heritage',
 				description:
-					'Brassware, marble souvenirs, and textile stalls packed into narrow streets. Shop for inlay work after the monuments, when the city feels lived-in.',
-				src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB55BZNyfa5Hb-knQZ1S_uJoCP0dJ9y9CAHwRlTD5WPhyuCqp2Bg_IjmV6sGe8u3Lj9iXmZ1-qL7OxRuxGgpgTX-Wjxe8p2kutWDWTHfTTudocOQ70dwGlnQbiAYsfeoY2tb8DQFFfo8Mzk7yb-2P2jCyJPyrN58kHOQUHuQ5C0HB759nw86Kc6xWdIJIFKr6meB9iwqV8YXnDu6updKQEzSOIsnBfD0i9MNirTItwRSeG2pYkx',
-				alt: 'Colorful local market stalls in Agra with textiles, brassware, and souvenirs',
-			},
-			{
-				title: 'Agra Petha and masala chai',
-				mood: 'Street food',
-				description:
-					'Sample the city’s famous translucent sweet with a cup of spiced chai. A simple stop that travelers remember as much as the forts.',
-				src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDQ25lgUOR1SinHhiV9hoI8UI6fb42Ynfj_zpuYEhzTQIeaoGpkqab7Q_WpQwCkLyQO6--LS6CGdfcPSqHuQO_drAzZ5sBrJSaIfLypbTHbJmfH0PAxFg68QH_Y1-rY2L6gMKrmXAa_t9cQ1CU1ObYnH3JjCnDodqHbbw45TpGb5QWrwn7MasDNFBSUvk9hDpLVh09QcoXYF-9fVj8bwCCo4BRXPoMxF585QPU06wzeRwXdPeY3',
-				alt: 'Agra Petha and masala chai on a wooden table',
+					'Akbar’s abandoned capital, with Buland Darwaza, palaces, and the courtyard of Jama Masjid. A half-day that feels like a full city.',
+				src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/The_Buland_Darwaza%2C_Fatehpur_Sikri%2C_Agra.jpg/1280px-The_Buland_Darwaza%2C_Fatehpur_Sikri%2C_Agra.jpg',
+				alt: 'Buland Darwaza gateway at Fatehpur Sikri near Agra',
 			},
 		],
 		reviews: [
@@ -73,7 +65,7 @@ const placeContentBySlug: Record<string, PlaceContent> = {
 			},
 			{
 				name: 'James L.',
-				quote: 'Great value. The local food walk in Sadar Bazaar was the highlight after the monuments.',
+				quote: 'Great value. Taj Mahal, Agra Fort, and Fatehpur Sikri were paced well without feeling rushed.',
 				rating: 4,
 			},
 		],
@@ -127,31 +119,39 @@ const placeContentBySlug: Record<string, PlaceContent> = {
 	},
 	kashmir: {
 		overview:
-			'Kashmir still earns its old name — Paradise on Earth — with Dal Lake, chinar-lined gardens, and meadow plateaus under sharp mountain light. This journey balances Srinagar’s houseboat calm with open landscapes in Gulmarg and the Mughal gardens.\n\nExpect shikara evenings, garden terraces, and high meadows depending on the season. The itinerary is unhurried so you can sit with the lake, the gardens, and the mountain air instead of rushing between photo stops.',
+			'Kashmir still earns its old name — Paradise on Earth — with meadow plateaus, river valleys, and Srinagar’s lake-side lanes under sharp mountain light. This journey balances Gulmarg, Sonamarg, and Pahalgam with a local side view of Srinagar.\n\nExpect gondola meadows, glacier valleys, Lidder river walks, and shikara evenings. The itinerary is unhurried so you can sit with the mountains and the lake instead of rushing between photo stops.',
 		experiences: [
 			{
-				title: 'Shikara on Dal Lake',
-				mood: 'Sunset',
-				description:
-					'Glide past lotus gardens and houseboats as the light turns gold. The lake is the heart of a Srinagar evening.',
-				src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDx6sH8UOJaFx97kQFvPsVnOccKHycY3Ph28IGQMwe8ZbSeiUB1HO-JdrplogTqtjcjLAXK_zNBukpQgaH1RNmm_z2RkkrzbPXyYgMOMMYSCNOeAETRy5sR1chWK-8HqberDXKcYOk7NzY1pnrAyxyr4Ov1vQGbGHgaxy3QXpCbmi5RdPNFQarINjglsQ2mS_GWD8ziIOgFB0qcTghj1pnHq1GOI27SeOcwfAgqhDS7xv3OdHTu',
-				alt: 'Shikara boat on Dal Lake in Kashmir at sunset',
-			},
-			{
-				title: 'Mughal gardens',
-				mood: 'Gardens',
-				description:
-					'Nishat and Shalimar terraces, chinar trees, and mountain backdrops. Spring blossoms and autumn colour both photograph beautifully.',
-				src: unsplash('photo-1595815771614-ade9d652a65d'),
-				alt: 'Terraced garden with mountain views in Kashmir',
-			},
-			{
-				title: 'Gulmarg meadows',
+				title: 'Gulmarg',
 				mood: 'Meadows',
 				description:
 					'Wide green slopes in summer, ski fields in winter. The gondola ride opens a panorama that feels like another country.',
-				src: unsplash('photo-1506905925346-21bda4d32df4'),
-				alt: 'Open mountain meadows and peaks near Gulmarg',
+				src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Gulmarg_2.jpg/1280px-Gulmarg_2.jpg',
+				alt: 'Meadows and mountain slopes in Gulmarg, Kashmir',
+			},
+			{
+				title: 'Sonamarg',
+				mood: 'Valley',
+				description:
+					'The meadow of gold, with Thajiwas glacier, pine slopes, and Sind river light. Best on a clear morning drive from Srinagar.',
+				src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Thajiwas_Glacier_at_Sonmarg%2C_June_2026.jpg/1280px-Thajiwas_Glacier_at_Sonmarg%2C_June_2026.jpg',
+				alt: 'Thajiwas glacier and meadows at Sonamarg, Kashmir',
+			},
+			{
+				title: 'Pahalgam',
+				mood: 'Riverside',
+				description:
+					'The Lidder river, pine forests, and valley walks. A slower mountain town that rewards a full day, not a drive-through.',
+				src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Pahalgam_Valley.jpg/1280px-Pahalgam_Valley.jpg',
+				alt: 'Pahalgam valley and river landscape in Kashmir',
+			},
+			{
+				title: 'Srinagar local side view',
+				mood: 'Local',
+				description:
+					'Dal Lake shikaras, houseboats, old-city lanes, and everyday Srinagar from the water and the shore. The city’s quieter side, not just the postcard.',
+				src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDx6sH8UOJaFx97kQFvPsVnOccKHycY3Ph28IGQMwe8ZbSeiUB1HO-JdrplogTqtjcjLAXK_zNBukpQgaH1RNmm_z2RkkrzbPXyYgMOMMYSCNOeAETRy5sR1chWK-8HqberDXKcYOk7NzY1pnrAyxyr4Ov1vQGbGHgaxy3QXpCbmi5RdPNFQarINjglsQ2mS_GWD8ziIOgFB0qcTghj1pnHq1GOI27SeOcwfAgqhDS7xv3OdHTu',
+				alt: 'Shikara boat on Dal Lake, a local side view of Srinagar',
 			},
 		],
 		reviews: [
@@ -174,31 +174,39 @@ const placeContentBySlug: Record<string, PlaceContent> = {
 	},
 	ajmer: {
 		overview:
-			'Ajmer is one of Rajasthan’s spiritual centres, known for the Ajmer Sharif Dargah and a town that gathers pilgrims from across the subcontinent. This visit is paced with respect — time at the shrine, modest dress, and space for prayer or quiet walking.\n\nEvenings by Ana Sagar Lake and a day trip to Pushkar add water, ghats, and desert-town bazaars to the dargah experience. Transfers and hotel placement are chosen so the holy precinct stays easy to reach.',
+			'Ajmer is one of Rajasthan’s spiritual centres, known for Ajmer Dargah Sharif and a town that gathers pilgrims from across the subcontinent. This visit is paced with respect — time at the shrine, modest dress, and space for prayer or quiet walking.\n\nYou move from Ajmer Dargah Sharif to Ana Sagar Lake, then up to Taragarh and on to Sarwar Sharif. Transfers and hotel placement are chosen so the holy precinct stays easy to reach.',
 		experiences: [
 			{
-				title: 'Ajmer Sharif Dargah',
+				title: 'Ajmer Dargah Sharif',
 				mood: 'Spiritual',
 				description:
 					'The white marble courtyards and qawwali evenings carry a deep sense of devotion. Dress modestly and allow time for the inner sanctum.',
-				src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAyPxCVKkOmnJmbmhuOfLzJJpVo-IfwierTWEoCXQDID4nfx2974J7CFx2msbWstciJ_3912ROHYna4NAmUzOMnz5IKxompW0qHlz92JEDPa_4vcG2j4F9DKgkA7eZs7kYQD_mBMHQvBq3htDhyXbS1NS0U6PqkKquSJGf210UqhP7_KURXKWtGRsvUJvQvyIQrlMyW7IQUjTnb5tb7S1v_SLIpoHD5PjDOGtwDJw51lNYaf_34',
-				alt: 'Historic architecture in Ajmer, Rajasthan',
+				src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Ajmer_Sharif_Dargah%2C_Khwaja_Garib_Nawaz_Rajasthan%2C_India.jpg/1280px-Ajmer_Sharif_Dargah%2C_Khwaja_Garib_Nawaz_Rajasthan%2C_India.jpg',
+				alt: 'Ajmer Dargah Sharif, the shrine of Khwaja Gharib Nawaz',
 			},
 			{
 				title: 'Ana Sagar Lake',
 				mood: 'Lakeside',
 				description:
 					'Evening breezes along the marble pavilions. A calm contrast after the energy of the dargah lanes.',
-				src: unsplash('photo-1477587458883-47145ed94245'),
-				alt: 'Historic Rajasthani architecture near water',
+				src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Ana_Sagar_pavilion_sunset_2016.jpg/1280px-Ana_Sagar_pavilion_sunset_2016.jpg',
+				alt: 'Marble pavilions on Ana Sagar Lake in Ajmer at sunset',
 			},
 			{
-				title: 'Pushkar day visit',
+				title: 'Taragarh',
 				mood: 'Heritage',
 				description:
-					'A short drive to the sacred lake, ghats, and desert-town bazaars. Often combined with Ajmer for a fuller Rajasthan stop.',
-				src: unsplash('photo-1603262110263-fb0112e7cc33'),
-				alt: 'Desert-town architecture and ghats in Rajasthan',
+					'The star fort on the hill above Ajmer, with old walls and wide views over the town. Best visited in the cooler morning hours.',
+				src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/The_Fort_Wall_of_Taragarh%2C_Ajmer.JPG/1280px-The_Fort_Wall_of_Taragarh%2C_Ajmer.JPG',
+				alt: 'Fort walls of Taragarh overlooking Ajmer',
+			},
+			{
+				title: 'Sarwar Sharif',
+				mood: 'Spiritual',
+				description:
+					'The dargah of Khwaja Fakhruddin Chishti in Sarwar, a quieter shrine visit a short drive from Ajmer.',
+				src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAyPxCVKkOmnJmbmhuOfLzJJpVo-IfwierTWEoCXQDID4nfx2974J7CFx2msbWstciJ_3912ROHYna4NAmUzOMnz5IKxompW0qHlz92JEDPa_4vcG2j4F9DKgkA7eZs7kYQD_mBMHQvBq3htDhyXbS1NS0U6PqkKquSJGf210UqhP7_KURXKWtGRsvUJvQvyIQrlMyW7IQUjTnb5tb7S1v_SLIpoHD5PjDOGtwDJw51lNYaf_34',
+				alt: 'Historic shrine architecture at Sarwar Sharif near Ajmer',
 			},
 		],
 		reviews: [
@@ -209,7 +217,7 @@ const placeContentBySlug: Record<string, PlaceContent> = {
 			},
 			{
 				name: 'Nadia F.',
-				quote: 'Ajmer and Pushkar in one trip worked perfectly. Hotels were clean and close to the main sites.',
+				quote: 'Ana Sagar in the evening and Taragarh in the morning made a complete Ajmer stay. Hotels were clean and close to the main sites.',
 				rating: 5,
 			},
 			{
@@ -221,10 +229,10 @@ const placeContentBySlug: Record<string, PlaceContent> = {
 	},
 	delhi: {
 		overview:
-			'Delhi is a capital of contrasts: Mughal tombs and Friday mosque courtyards on one side, wide lawns and India Gate on the other. This city tour is built to show both Old and New Delhi without turning the days into a checklist.\n\nYou move from Chandni Chowk’s spice lanes and Jama Masjid to Humayun’s Tomb, Qutub Minar, and dusk at Rajpath. Guides keep timings realistic so heritage, food, and rest all fit the same itinerary.',
+			'Delhi is a capital of contrasts: Mughal tombs and Friday mosque courtyards on one side, wide lawns and India Gate on the other. This city tour is built to show both Old and New Delhi without turning the days into a checklist.\n\nYou move from India Gate, Raj Ghat, Parliament House, and Rashtrapati Bhavan to the Red Fort and Jama Masjid, then on to Qutub Minar, the Indira Gandhi Memorial Museum, and Nizamuddin Dargah. Guides keep timings realistic so heritage, food, and rest all fit the same itinerary.',
 		experiences: [
 			{
-				title: 'India Gate and Rajpath',
+				title: 'India Gate',
 				mood: 'Landmarks',
 				description:
 					'Wide lawns, evening lights, and the sandstone arch. A classic first impression of the capital at dusk.',
@@ -232,20 +240,68 @@ const placeContentBySlug: Record<string, PlaceContent> = {
 				alt: 'India Gate illuminated at dusk in New Delhi',
 			},
 			{
-				title: 'Old Delhi lanes',
-				mood: 'Old city',
+				title: 'Raj Ghat',
+				mood: 'Memorial',
 				description:
-					'Jama Masjid’s steps, spice markets, and cycle-rickshaw rides through Chandni Chowk. Loud, fragrant, and unforgettable.',
-				src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDWf1YPj3j3XVn3DBfNEz-szFoslcQiLwsQ-l-2pP7ukzaBQKcJjpVvRv8WjIdHGROLkFtH1xasous8KOFUi_mJiGTYvdjDqVeL8RnU_TRcGmCvwA1XRhOBTqXRykDUF8xcOfmHxpgf6mgRHXfmuYg5-N6imxjGjwWTMqyxXVhhAFc-8NspgqSbB5sNk8-86-rJisnOw8O-WqPMPKDtEwJ2dHJ20wSQgRqV0j9ihrq9hpg__qGA',
-				alt: 'Landmarks and cityscape of Delhi',
+					'The black marble platform where Mahatma Gandhi was cremated. Quiet and open, and best visited in the morning.',
+				src: 'https://upload.wikimedia.org/wikipedia/commons/a/ab/Raj-ghat-gandhi.jpg',
+				alt: 'Black marble memorial platform at Raj Ghat in Delhi',
 			},
 			{
-				title: 'Humayun’s Tomb and Qutub',
+				title: 'Parliament House',
+				mood: 'Civic',
+				description:
+					'Sansad Bhavan on the central vista, seen from the outside on the New Delhi drive.',
+				src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Sansad_Bhavan-1.jpg/1280px-Sansad_Bhavan-1.jpg',
+				alt: 'Parliament House, Sansad Bhavan, in New Delhi',
+			},
+			{
+				title: 'Red Fort',
 				mood: 'Heritage',
 				description:
-					'Garden tombs and soaring minarets that set the template for later Mughal architecture. Best visited in the softer morning light.',
-				src: unsplash('photo-1524492412937-b28074a5d7c5'),
-				alt: 'Mughal garden tomb architecture in Delhi',
+					'Lal Qila’s red sandstone walls and halls, opening onto Chandni Chowk. Go early, before the heat and the crowds.',
+				src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Red_Fort_in_Delhi_03-2016_img3.jpg/1280px-Red_Fort_in_Delhi_03-2016_img3.jpg',
+				alt: 'Red sandstone walls of the Red Fort in Delhi',
+			},
+			{
+				title: 'Indira Gandhi Memorial Museum',
+				mood: 'Museum',
+				description:
+					'The former residence on Safdarjung Road, kept as it was, with personal rooms and photographs.',
+				src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Museum_at_Indira_Gandhi_Memorial_at_Delhi.jpg/1280px-Museum_at_Indira_Gandhi_Memorial_at_Delhi.jpg',
+				alt: 'Indira Gandhi Memorial Museum in New Delhi',
+			},
+			{
+				title: 'Rashtrapati Bhavan',
+				mood: 'Landmarks',
+				description:
+					'The President’s House at the end of the vista, with its dome, columns, and formal gardens on the drive past.',
+				src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Rashtrapati_Bhavan_%28seen_from_Raisina_Hill%29.jpg/1280px-Rashtrapati_Bhavan_%28seen_from_Raisina_Hill%29.jpg',
+				alt: 'Rashtrapati Bhavan seen from Raisina Hill in New Delhi',
+			},
+			{
+				title: 'Qutub Minar',
+				mood: 'Heritage',
+				description:
+					'The soaring minaret and surrounding ruins, best in the softer morning light.',
+				src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Qutub_Minar%2C_Delhi_11.jpg/1280px-Qutub_Minar%2C_Delhi_11.jpg',
+				alt: 'Qutub Minar tower in Delhi',
+			},
+			{
+				title: 'Jama Masjid',
+				mood: 'Old city',
+				description:
+					'Shah Jahan’s Friday mosque above the lanes of Old Delhi, with the spice markets of Chandni Chowk just below.',
+				src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Jama_Masjid%2C_Delhi.jpg/1280px-Jama_Masjid%2C_Delhi.jpg',
+				alt: 'Courtyard and domes of Jama Masjid in Delhi',
+			},
+			{
+				title: 'Nizamuddin Dargah',
+				mood: 'Spiritual',
+				description:
+					'The shrine of Hazrat Nizamuddin Auliya, with qawwali in the evening and the lanes of Nizamuddin around it.',
+				src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Nizamuddin_Dargah_and_Jamaat_Khana_Masjid%2C_Delhi.jpg/1280px-Nizamuddin_Dargah_and_Jamaat_Khana_Masjid%2C_Delhi.jpg',
+				alt: 'Nizamuddin Dargah and Jamaat Khana Masjid in Delhi',
 			},
 		],
 		reviews: [
@@ -268,31 +324,31 @@ const placeContentBySlug: Record<string, PlaceContent> = {
 	},
 	punjab: {
 		overview:
-			'Punjab welcomes visitors with the Golden Temple, generous langar, and a food culture that is as memorable as the monuments. This itinerary is built around Amritsar — spiritual time at Harmandir Sahib, the Wagah ceremony, and the city’s famous streets of kulcha and lassi.\n\nDays are paced so you can visit the temple in both daylight and evening light, when the marble and the sacred pool glow. Hospitality is part of the journey, not an extra stop.',
+			'Punjab welcomes visitors with the Golden Temple, generous langar, and a city of memory around Amritsar. This itinerary is built around three stops — the Wagah Border ceremony, Harmandir Sahib, and Jallianwala Bagh Memorial.\n\nDays are paced so you can visit the temple in both daylight and evening light, when the marble and the sacred pool glow. Hospitality is part of the journey, not an extra stop.',
 		experiences: [
 			{
-				title: 'Golden Temple, Amritsar',
+				title: 'Wagah Border',
+				mood: 'Ceremony',
+				description:
+					'High-energy parade, flags, and cheering crowds at sunset on the India–Pakistan border. Arrive early for seats and soak in the atmosphere.',
+				src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Wagah_Border_Check-Point%2C_India-Pakistan_Border%2C_Punjab%2C_India.JPG/1280px-Wagah_Border_Check-Point%2C_India-Pakistan_Border%2C_Punjab%2C_India.JPG',
+				alt: 'Wagah Border check-point between India and Pakistan in Punjab',
+			},
+			{
+				title: 'Golden Temple',
 				mood: 'Spiritual',
 				description:
 					'The Harmandir Sahib glowing on the sacred pool, langar, and the calm of the marble parikrama. Visit both day and night if you can.',
-				src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCN508iZBs3uBNdIdlrPHwLzBe1uIBXZMOcwJEQ-nyvZ9XlGG9t0Tdm75aW9moWQDO_04PHH36Gqmxty6lDVoVdM_WD_SQ0Yj2Z7ww0foK3aJvtGDhWMILJpxAe0xxl6pn7P3qjBVqceTZnyk3IZYNANDPMNHglFuYAmnjIr8WBZX-csRrZLY-RHy37kG2T-ncjBP4MHts9rxecf1LEcAFku6zaOO0eBYL9DR3Tr0fRsYCE48I6',
-				alt: 'Cultural heritage scenes from Punjab',
+				src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Golden_Temple_%28Harmandir_Sahib%29_at_night%2C_Amritsar%2C_Punjab%2C_India_%282017%29_3.jpg/1280px-Golden_Temple_%28Harmandir_Sahib%29_at_night%2C_Amritsar%2C_Punjab%2C_India_%282017%29_3.jpg',
+				alt: 'Golden Temple, Harmandir Sahib, at night in Amritsar',
 			},
 			{
-				title: 'Wagah Border ceremony',
-				mood: 'Ceremony',
+				title: 'Jallianwala Bagh Memorial',
+				mood: 'Memorial',
 				description:
-					'High-energy parade, flags, and cheering crowds at sunset. Arrive early for seats and soak in the atmosphere.',
-				src: unsplash('photo-1532375810709-75b1da00537c'),
-				alt: 'Crowds gathered for an outdoor ceremony in Punjab',
-			},
-			{
-				title: 'Amritsar food streets',
-				mood: 'Cuisine',
-				description:
-					'Kulcha, lassi, and late-night dhabas. Punjab’s hospitality is easiest to taste after a day at the shrine.',
-				src: unsplash('photo-1596040033229-a9821ebd058d'),
-				alt: 'Spices and North Indian street food',
+					'The garden memorial of the 1919 massacre, with the eternal flame and the narrow entrance that still tells the story. Quiet, and best visited with time to pause.',
+				src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Jallianwala_Bagh_Memorial_in_Amritsar.jpg/1280px-Jallianwala_Bagh_Memorial_in_Amritsar.jpg',
+				alt: 'Jallianwala Bagh Memorial in Amritsar',
 			},
 		],
 		reviews: [
@@ -303,7 +359,7 @@ const placeContentBySlug: Record<string, PlaceContent> = {
 			},
 			{
 				name: 'The Singh Family',
-				quote: 'Wagah tickets and timing were sorted for us. Food recommendations were spot on.',
+				quote: 'Wagah tickets and timing were sorted for us. Jallianwala Bagh was given the quiet it deserves.',
 				rating: 5,
 			},
 			{
@@ -315,31 +371,31 @@ const placeContentBySlug: Record<string, PlaceContent> = {
 	},
 	jaipur: {
 		overview:
-			'Jaipur, the Pink City, is Rajasthan’s royal capital — palaces, hill forts, and bazaars in terracotta and rose sandstone. This tour gives you Amber Fort’s mirrored halls, Hawa Mahal’s honeycomb facade, and enough market time to actually shop.\n\nMornings are kept for the big forts when the light is kinder; afternoons and evenings belong to Johari and Bapu Bazaar. The city is colourful and busy, so the itinerary leaves room to wander without losing the day.',
+			'Jaipur, the Pink City, is Rajasthan’s royal capital — palaces, hill forts, and rose-sandstone streets. This tour is built around the Pink City itself, Hawa Mahal’s honeycomb facade, and Amber Fort’s mirrored halls.\n\nMornings are kept for the fort when the light is kinder; afternoons belong to Hawa Mahal and the pink lanes of the old city. The city is colourful and busy, so the itinerary leaves room to wander without losing the day.',
 		experiences: [
 			{
-				title: 'Hawa Mahal facade',
+				title: 'Pink City',
 				mood: 'Pink City',
 				description:
+					'Rose-sandstone streets, bazaars, and terracotta facades that gave Jaipur its name. Best walked in late afternoon, when the walls glow.',
+				src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Lascar_Jaipur%2C_the_Pink_City_%284499845296%29.jpg/1280px-Lascar_Jaipur%2C_the_Pink_City_%284499845296%29.jpg',
+				alt: 'Rose-sandstone streets of Jaipur, the Pink City',
+			},
+			{
+				title: 'Hawa Mahal',
+				mood: 'Landmarks',
+				description:
 					'Honeycomb windows catching the desert light. View it from the street first, then step inside for the city rooftops.',
-				src: unsplash('photo-1477587458883-47145ed94245'),
-				alt: 'Hawa Mahal facade in Jaipur',
+				src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/East_facade_Hawa_Mahal_Jaipur_from_ground_level_%28July_2022%29_-_img_01.jpg/1280px-East_facade_Hawa_Mahal_Jaipur_from_ground_level_%28July_2022%29_-_img_01.jpg',
+				alt: 'East facade of Hawa Mahal in Jaipur',
 			},
 			{
 				title: 'Amber Fort',
-				mood: 'Palaces',
+				mood: 'Heritage',
 				description:
 					'Elephant-path ramparts, mirrored halls, and views over Maota Lake. The fort is Jaipur’s grandest half-day.',
-				src: unsplash('photo-1603262110263-fb0112e7cc33'),
-				alt: 'Amber Fort architecture overlooking the hills',
-			},
-			{
-				title: 'Bazaars of the old city',
-				mood: 'Bazaars',
-				description:
-					'Block prints, gemstones, and blue pottery in Johari and Bapu Bazaar. Bargain gently and watch the city glow terracotta at dusk.',
-				src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCIj_Lxi_peOu4Ke8hOOhKCyJrcHNShBj9GMtvZLDGqQzeTwusX3SGb9iu5Hwy4GOPi4G1LhXSMWriNc9F4QmVnKkUniWo-LYJjBRh8fq9adH3xONIJd5Bnwy_s5WD1TufqYZY2cc3ZBmRTCWf1bo8q6WjCNrkL7PrK5Rz7jojEmxKKGuKrYC2sHM_4c9QOUxGyJsq5LzaVans58OsP7hUrznzQ1DOUhJUhzK1w9-hKyQt0PoSt',
-				alt: 'Historic palace architecture in Jaipur',
+				src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Jaipur_03-2016_02_Amber_Fort.jpg/1280px-Jaipur_03-2016_02_Amber_Fort.jpg',
+				alt: 'Amber Fort above the hills near Jaipur',
 			},
 		],
 		reviews: [
@@ -350,12 +406,12 @@ const placeContentBySlug: Record<string, PlaceContent> = {
 			},
 			{
 				name: 'Arjun & Meera',
-				quote: 'Palaces, markets, and a beautiful hotel. Jaipur felt royal without being exhausting.',
+				quote: 'Hawa Mahal and the Pink City lanes felt royal without being exhausting. Hotel was beautiful.',
 				rating: 5,
 			},
 			{
 				name: 'Helen W.',
-				quote: 'Loved the bazaar walk. Shopping time was built into the itinerary instead of squeezed in.',
+				quote: 'Loved walking the pink streets. Time at Hawa Mahal was built into the itinerary instead of squeezed in.',
 				rating: 4,
 			},
 		],
